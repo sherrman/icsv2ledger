@@ -587,6 +587,8 @@ def main():
                 payee = value
             value = prompt_for_value('Account', possible_accounts, account)
             if value:
+                # Strip any transaction state information
+                value = value.lstrip(' !*')
                 modified = modified if modified else value != account
                 account = value
             if options.tags:
